@@ -26,7 +26,7 @@ public class Reader implements Runnable {
                 e.printStackTrace();
             }
         }
-            System.out.println(localDateTime + "The list is empty");
+            System.out.println(localDateTime + "   The list is empty");
             System.out.println("FINISH Reader");
 
     }

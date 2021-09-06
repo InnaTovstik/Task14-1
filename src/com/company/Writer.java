@@ -5,16 +5,15 @@ import java.util.Random;
 
 public class Writer implements Runnable {
 
-    ArrayList list;
+    ArrayList<Integer> list;
 
-    public Writer(ArrayList list) {
+    public Writer(ArrayList<Integer> list) {
         this.list = list;
     }
 
     public static int getElement() {
-        final Random random = new Random();
-        int element = random.nextInt(100);
-        return element;
+        Random random = new Random();
+        return random.nextInt(100);
     }
 
     @Override
@@ -25,7 +24,7 @@ public class Writer implements Runnable {
                 for (int i = 0; i < list.size(); i++) {
                     int addElement = getElement();
                     list.add(addElement);
-                    System.out.println("add element = " + addElement);
+                    System.out.println("add: " + addElement);
                     Thread.sleep(2_500);
                 }
             } catch (InterruptedException e) {
