@@ -14,7 +14,6 @@ public class Reader implements Runnable {
     @Override
     public void run() {
         System.out.println("BEGIN Reader");
-        LocalDateTime localDateTime = LocalDateTime.now();
         if (list.size() > 0) {
             try {
                 for (int i = 0; i < list.size(); i++) {
@@ -26,6 +25,7 @@ public class Reader implements Runnable {
                 e.printStackTrace();
             }
         }
+        LocalDateTime localDateTime = LocalDateTime.now();
         System.out.println(localDateTime + "   The list is empty");
         System.out.println("FINISH Reader");
 
