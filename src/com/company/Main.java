@@ -11,9 +11,8 @@ public class Main {
         arrayList.add(3);
         arrayList.add(4);
         arrayList.add(5);
-        for (Integer elementList : arrayList) {
-            System.out.println(elementList);
-        }
+        System.out.println(arrayList);
+
         Thread t1 = new Thread(new Reader(arrayList));
         Thread t2 = new Thread(new Writer(arrayList));
 
