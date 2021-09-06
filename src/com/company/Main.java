@@ -6,12 +6,14 @@ public class Main {
 
     public static void main(String[] args) {
         ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(1);
+        arrayList.add(2);
+        arrayList.add(3);
+        arrayList.add(4);
         arrayList.add(5);
-        arrayList.add(10);
-        arrayList.add(15);
-        arrayList.add(20);
-        arrayList.add(25);
-
+        for (Integer elementList : arrayList) {
+            System.out.println(elementList);
+        }
         Thread t1 = new Thread(new Reader(arrayList));
         Thread t2 = new Thread(new Writer(arrayList));
 
