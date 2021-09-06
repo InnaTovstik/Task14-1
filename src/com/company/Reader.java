@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class Reader implements Runnable {
 
-    ArrayList list;
+    ArrayList<Integer> list;
 
-    public Reader(ArrayList list) {
+    public Reader(ArrayList<Integer> list) {
         this.list = list;
     }
 
@@ -26,8 +26,8 @@ public class Reader implements Runnable {
                 e.printStackTrace();
             }
         }
-            System.out.println(localDateTime + "   The list is empty");
-            System.out.println("FINISH Reader");
+        System.out.println(localDateTime + "   The list is empty");
+        System.out.println("FINISH Reader");
 
     }
 }
