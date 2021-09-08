@@ -1,4 +1,7 @@
 package com.company;
+// Написать класс Writer, который реализует интерфейс Runnable.
+// Должен быть конструктор, который принимает список чисел.
+// В методе run() 1 раз в 2.5 секунды нужно добавлять случайные числа в список.
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,10 +20,10 @@ public class Writer implements Runnable {
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         System.out.println("BEGIN Writer");
         try {
-            for (int i = 0; i < list.size(); i++) {
+            while (true) {
                 int addElement = getElement();
                 list.add(addElement);
                 System.out.println("add: " + addElement);

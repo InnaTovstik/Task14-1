@@ -1,35 +1,40 @@
 package com.company;
+//Написать класс Reader, который реализует интерфейс Runnable.
+// Должен быть конструктор, который принимает список чисел.
+// В методе run() 1 раз в 1 секунду нужно проверять есть ли элементы в списке.
+// Если есть - печатать их в консоль и удалять (метод clear() у списка) .
+// Если нет - печатать в консоль дату и сообщение "The list is empty".
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Reader implements Runnable {
 
-    ArrayList<Integer> list;
+    ArrayList<Integer> arrayList;
 
-    public Reader(ArrayList<Integer> list) {
-        this.list = list;
+    public Reader(ArrayList<Integer> arrayList) {
+        this.arrayList = arrayList;
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         System.out.println("BEGIN Reader");
-        if (list.size() > 0) {
-            try {
-                for (int i = 0; i < list.size(); i++) {
+        try {
+            while (true) {
+                if (!arrayList.isEmpty()) {
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        System.out.println("clear: " + arrayList.get(i) + " ");
+                    }
+                    arrayList.clear();
                     Thread.sleep(1_000);
-                    System.out.println("clear: " + list.get(i) + " ");
+                } else {
+                    LocalDateTime localDateTime = LocalDateTime.now();
+                    System.out.println(localDateTime + "   The list is empty");
                 }
-                list.clear();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        LocalDateTime localDateTime = LocalDateTime.now();
-        System.out.println(localDateTime + "   The list is empty");
         System.out.println("FINISH Reader");
-
     }
 }
-
-
