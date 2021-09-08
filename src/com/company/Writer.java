@@ -14,7 +14,7 @@ public class Writer implements Runnable {
         this.arrayList = arrayList;
     }
 
-    public static int getElement() {
+   static int getElement() {
         Random random = new Random();
         return random.nextInt(100);
     }
