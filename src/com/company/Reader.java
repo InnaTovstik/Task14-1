@@ -17,16 +17,17 @@ public class Reader implements Runnable {
     }
 
     @Override
-    public synchronized void run() {
+    public void run() {
         System.out.println("BEGIN Reader");
         try {
             while (true) {
+                Thread.sleep(1_000);
                 if (!arrayList.isEmpty()) {
                     for (int i = 0; i < arrayList.size(); i++) {
                         System.out.println("clear: " + arrayList.get(i) + " ");
                     }
                     arrayList.clear();
-                    Thread.sleep(1_000);
+
                 } else {
                     LocalDateTime localDateTime = LocalDateTime.now();
                     System.out.println(localDateTime + "   The list is empty");

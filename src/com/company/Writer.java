@@ -8,10 +8,10 @@ import java.util.Random;
 
 public class Writer implements Runnable {
 
-    ArrayList<Integer> list;
+    ArrayList<Integer> arrayList;
 
-    public Writer(ArrayList<Integer> list) {
-        this.list = list;
+    public Writer(ArrayList<Integer> arrayList) {
+        this.arrayList = arrayList;
     }
 
     public static int getElement() {
@@ -20,12 +20,12 @@ public class Writer implements Runnable {
     }
 
     @Override
-    public synchronized void run() {
+    public void run() {
         System.out.println("BEGIN Writer");
         try {
             while (true) {
                 int addElement = getElement();
-                list.add(addElement);
+                arrayList.add(addElement);
                 System.out.println("add: " + addElement);
                 Thread.sleep(2_500);
             }
@@ -35,4 +35,3 @@ public class Writer implements Runnable {
         System.out.println("FINISH Writer");
     }
 }
-
