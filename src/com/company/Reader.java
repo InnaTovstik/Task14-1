@@ -6,14 +6,14 @@ package com.company;
 // Если нет - печатать в консоль дату и сообщение "The list is empty".
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.List;
 
 public class Reader implements Runnable {
 
-    ArrayList<Integer> arrayList;
+    List<Integer> list;
 
-    public Reader(ArrayList<Integer> arrayList) {
-        this.arrayList = arrayList;
+    public Reader(List<Integer> list) {
+        this.list = list;
     }
 
     @Override
@@ -22,12 +22,11 @@ public class Reader implements Runnable {
         try {
             while (true) {
                 Thread.sleep(1_000);
-                if (!arrayList.isEmpty()) {
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        System.out.println("clear: " + arrayList.get(i) + " ");
+                if (!list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        System.out.println("clear: " + list.get(i) + " ");
                     }
-                    arrayList.clear();
-
+                    list.clear();
                 } else {
                     LocalDateTime localDateTime = LocalDateTime.now();
                     System.out.println(localDateTime + "   The list is empty");

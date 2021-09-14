@@ -3,15 +3,15 @@ package com.company;
 // Должен быть конструктор, который принимает список чисел.
 // В методе run() 1 раз в 2.5 секунды нужно добавлять случайные числа в список.
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Writer implements Runnable {
 
-    ArrayList<Integer> arrayList;
+    List<Integer> list;
 
-    public Writer(ArrayList<Integer> arrayList) {
-        this.arrayList = arrayList;
+    public Writer(List<Integer> list) {
+        this.list = list;
     }
 
    static int getElement() {
@@ -25,7 +25,7 @@ public class Writer implements Runnable {
         try {
             while (true) {
                 int addElement = getElement();
-                arrayList.add(addElement);
+                list.add(addElement);
                 System.out.println("add: " + addElement);
                 Thread.sleep(2_500);
             }
